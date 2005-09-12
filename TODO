@@ -1,0 +1,61 @@
+needed functionality
+--------------------
+o integration with survey
+o add interface for editing organizer bio (reinstate organizer-add-2?)
+o system doesn't handle multi-day events like 3.x did (?)
+o update 3.x documentation!
+
+clean up
+--------
+o clean up packages and the files that rely on them so they do not ask for redundant info - if we care about this??
+  - events-registrations-package-create.sql asks for both user_id and creation_user (we may want this to have staff add somebody - we'll see)
+o bring proc namespace declarations inline with new conventions
+o decide on party_id vs. user_id then make API consistent
+o move parts of event.adp and activity.adp to adp chunks for reuse?
+  - look for other similar candidates for template sharing
+o convert forms to use ad_form (possibly change pages as well - event-role-ae, etc.)
+o check ad_page_contract usage consistency (properties, etc.)
+o use related_link_url field in acs_events rather than our own detail_url?
+  - move form element to event-ae pages
+  - adjust event.new
+  - adjust order-one, event-info, activity
+  ! acs_event.new doesn't accept related_url arg (even though it's in acs_events) so deal with this later?
+  - ask someone on irc to commit changes to plsql interface
+
+wish list
+---------
+o support for recurring events
+o integrate with search (active events only)
+o generate rss feed for active events
+o integrate with provider-profile to display events a user has attended or is registered for
+o integrate usps_abbrev for venues with the ref-zip codes (or whatever else it is called) module so we can enter the state for an event
+
+
+--
+THINGS THAT HAVE BEEN FINISHED
+------------------------------
+DRB
+
+o remove unnecessary permissions... as it stands we don't need any special permissions (it only relies on read, write and admin)
+
+MICHAEL
+o integrate with attachments for agenda upload
+o move common queries from *.xql to procs (done?) MATTHEW AGREES THAT THIS IS DONE
+o move oracle specific stuff [(+), decode(), etc.] to -oracle.xql files
+  - is logical_negation() cross platform? MATTHEW AGREES THAT THIS IS DONE
+
+
+
+MATTHEW 
+o integrate with bulk-mail for spamming
+o implement permissions
+NOT DOING THIS AS PER COMMMUNITY CONSENSUS o templating system integration with master template for admin, and some small UI useablility changes
+o subsite awareness
+o when adding an event, maximum capacity should not be allowed to be higher than the max capacity of that venue - I think we should just leave it like that.
+o activity and event check on various pages (i.e., does id exists in db?)
+o check that order-one won't serve up past reg_deadline (-validate)
+UNNECCESARY?? EVENT_ADD_2 ISN'T USED o more error checking in event-add-2 (deadline > sysdate)
+IT IS GOOD ENOUGHo delete unnecessary code (once we are "done") - this way somebody looking at the code won't 
+  change one file and not realize that the problem is elsewhere for example:
+  - tcl/venue-database.xql I don't think it needs the events::venue::new.new query
+FIXED o events page -> "view page users see" broken - event page shows old events (why?)

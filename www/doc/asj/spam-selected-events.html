@@ -1,0 +1,192 @@
+<html>
+<head>
+
+<title>Spam Selected Events</title>
+</head>
+<body bgcolor="white" text="black">
+
+  <h2>Spam Selected Events</h2>
+<a href="demo.html">Your Workspace</a> : <a href="demo.html">Events Administration</a> : Spam Selected Events
+<hr>   
+    Select the event(s) whose registrants you would like to spam<p>
+    or 
+    <form method=post action="demo.html">
+    <input type=hidden name=sql_post_select value="select distinct 
+    users.email, users.user_id, users.email_type
+    from users_spammable users, events_reg_not_canceled r
+    where users.user_id = r.user_id
+    and r.reg_id not in 
+      (select distinct r.reg_id
+      from events_registrations r,events_activities a, events_events e,
+      events_prices p
+      where p.event_id = e.event_id
+      and e.activity_id = a.activity_id
+      and p.price_id = r.price_id
+      and a.group_id not in 
+         (select distinct group_id 
+         from user_group_map 
+         where user_id = 1929) )
+    order by users.user_id
+    ">
+
+    <input type=submit value="Spam Everyone">
+    </form>
+    
+<form method=post action="demo.html">
+<input type=hidden name="spam_selected_events" value="1">
+
+<table border=0 cellspacing=0 cellpadding=3 width=100%>
+<tr>
+ <th bgcolor="#ECECEC">Show Events Starting in the:</th>
+</tr>
+<tr>
+ <td align=center>[<a href="demo.html">Last Month</a> | <a href="demo.html">Last 6 Months</a> | <a href="demo.html">Last Year</a> | <a href="demo.html">Future</a> | <strong>All</strong>]</td>
+</tr>
+</table>
+
+<p>
+<table >
+<tr bgcolor="#f8f8f8">
+ <th></th>
+ <th><a href="demo.html">
+Activity</a>&nbsp;v</th>
+ <th><a href="demo.html">
+Location</a>&nbsp;</th>
+ <th><a href="demo.html">
+Start</a>&nbsp;</th>
+ <th><a href="demo.html">
+End</a>&nbsp;</th>
+</tr>
+<tr bgcolor="#ececec">
+ <td><input type=checkbox name="event.651" value=651></td>
+ <td>3 Week Boot Camp</td>
+ <td>Cambridge, MA</td>
+ <td>May 11, 2000</td>
+ <td>May 26, 2000</td>
+</tr>
+<tr>
+ <td><input type=checkbox name="event.730" value=730></td>
+ <td>3 Week Boot Camp</td>
+ <td>Cambridge, MA</td>
+ <td>March 6, 2000</td>
+ <td>March 24, 2000</td>
+</tr>
+<tr bgcolor="#ececec">
+ <td><input type=checkbox name="event.1231" value=1231></td>
+ <td>3 Week Boot Camp</td>
+ <td>Hamburg, Germany</td>
+ <td>October 4, 2000</td>
+ <td>October 20, 2000</td>
+</tr>
+<tr>
+ <td><input type=checkbox name="event.1510" value=1510></td>
+ <td>Evening Course:  Web Application Design</td>
+ <td>Toronto, Ontario, Canada</td>
+ <td>June 26, 1999</td>
+ <td>June 26, 1999</td>
+</tr>
+<tr bgcolor="#ececec">
+ <td><input type=checkbox name="event.1012" value=1012></td>
+ <td>Future Events</td>
+ <td>Palo Alto, CA</td>
+ <td>June 1, 2000</td>
+ <td>July 1, 2000</td>
+</tr>
+<tr>
+ <td><input type=checkbox name="event.221" value=221></td>
+ <td>One-day Course:  Web Application Design</td>
+ <td>Cambridge, MA</td>
+ <td>January 11, 1999</td>
+ <td>January 11, 1999</td>
+</tr>
+<tr bgcolor="#ececec">
+ <td><input type=checkbox name="event.242" value=242></td>
+ <td>One-day Course:  Web Application Design</td>
+ <td>Cambridge, MA</td>
+ <td>June 25, 1999</td>
+ <td>June 25, 1999</td>
+</tr>
+<tr>
+ <td><input type=checkbox name="event.1670" value=1670></td>
+ <td>One-evening Web Course</td>
+ <td>Melbourne, Australia</td>
+ <td>July 24, 2000</td>
+ <td>July 24, 2000</td>
+</tr>
+<tr bgcolor="#ececec">
+ <td><input type=checkbox name="event.1671" value=1671></td>
+ <td>One-evening Web Course</td>
+ <td>Sydney, Australia</td>
+ <td>July 21, 2000</td>
+ <td>July 21, 2000</td>
+</tr>
+<tr>
+ <td><input type=checkbox name="event.1435" value=1435></td>
+ <td>Oracle iDevelop Conference</td>
+ <td>Taipei, Taiwan</td>
+ <td>August 9, 2000</td>
+ <td>August 9, 2000</td>
+</tr>
+<tr bgcolor="#ececec">
+ <td><input type=checkbox name="event.1370" value=1370></td>
+ <td>Oracle iDevelop Conference</td>
+ <td>Tel Aviv, Israel</td>
+ <td>June 12, 2000</td>
+ <td>June 12, 2000</td>
+</tr>
+<tr>
+ <td><input type=checkbox name="event.1371" value=1371></td>
+ <td>Oracle iDevelop Conference</td>
+ <td>Tel Aviv, Israel</td>
+ <td>June 13, 1999</td>
+ <td>June 13, 1999</td>
+</tr>
+<tr bgcolor="#ececec">
+ <td><input type=checkbox name="event.1430" value=1430></td>
+ <td>Oracle iDevelop Conference</td>
+ <td>Toronto, Canada</td>
+ <td>June 26, 2000</td>
+ <td>June 26, 2000</td>
+</tr>
+<tr>
+ <td><input type=checkbox name="event.1810" value=1810></td>
+ <td>Test Activity</td>
+ <td>Cambridge, MA</td>
+ <td>August 24, 1999</td>
+ <td>August 24, 1999</td>
+</tr>
+<tr bgcolor="#ececec">
+ <td><input type=checkbox name="event.1570" value=1570></td>
+ <td>Two-day Boot Camp (long weekend)</td>
+ <td>Washington, DC</td>
+ <td>July 15, 2000</td>
+ <td>July 16, 2000</td>
+</tr>
+<tr>
+ <td><input type=checkbox name="event.1690" value=1690></td>
+ <td>Two-day Boot Camp (long weekend)</td>
+ <td>Washington, DC</td>
+ <td>August 26, 2000</td>
+ <td>August 27, 2000</td>
+</tr>
+</table>
+
+
+<p>
+Do you want to spam:
+<p>
+<input type=radio checked name=reg_state value="shipped">Confirmed Registrants<br>
+<input type=radio name=reg_state value="pending">Pending Registrants<br>
+<input type=radio name=reg_state value="waiting">Wait-Listed Registrants<br>
+<input type=radio name=reg_state value="all">All Registrants<br>
+
+<center> <input type=submit value="Continue"> </center>
+</form>
+
+
+
+<hr>
+
+<a href="demo.html"><address>webmaster@arsdigita.com</address></a>
+</body>
+</html>

@@ -1,0 +1,57 @@
+-- Org role design issues
+
+allow two tables to hold org roles so that
+ o event editors can modify roles after creating event w/o affecting original role?
+
+-- Custom fields design issues
+
+-- Chat with Arjun about attachments
+
+ms: ok, so every time fs is instanciated it creates a new root folder mapped to the new fs package_id. you manually map the package_id of the package that you want attacments for (events in your case) to the specific fs root folder id you want
+
+arjun: so when i'm using the attachments api, i'll use the fs package_id for the -object_id switches?
+
+ms: no don't pass the fs package_id as object id. object_id = the acs object you are attaching something to (forum post, cal event) once the fs root folder is setup once, you don't have to worry about it again
+
+arjun: any way to automate this process for packages? should i set up an init proc to map the folder and write an attachments_p flag to one of my tables? (i'd write an attachments enabled flag if my init proc could find an fs_root_folder to map to)
+
+ms: yes, that would be how i would do it. using a _post_instanciation proc in your pkgs -init file
+
+thoughts 
+ o add post_instantiation proc that creates new fs and attachments instances under events and creates the root folder mapping as arjun mentioned above
+
+-- Notes and code snippets for bios work
+
+<fullquery name="biography">      
+      <querytext>
+select attr_value
+from acs_attribute_values
+where object_id = :user_id
+and attribute_id =
+   (select attribute_id
+    from acs_attributes
+    where object_type = 'person'
+    and attribute_name = 'bio')
+      </querytext>
+</fullquery>
+
+    if { $bio_change_to == 0 } {
+        # perform the insert
+        db_dml insert_bio "insert into acs_attribute_values
+        (object_id, attribute_id, attr_value)
+        values 
+        (:user_id, (select attribute_id
+          from acs_attributes
+          where object_type = 'person'
+          and attribute_name = 'bio'), :bio)"
+    } elseif { $bio_change_to == 2 } {
+        # perform the update
+        db_dml update_bio "update acs_attribute_values
+        set attr_value = :bio
+        where object_id = :user_id
+        and attribute_id =
+          (select attribute_id
+          from acs_attributes
+          where object_type = 'person'
+          and attribute_name = 'bio')"
+    }
