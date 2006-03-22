@@ -7,10 +7,10 @@
     <th align=right>Name</th><td>@user_name@</td>
   </tr>
   <tr>
-    <th align=right>Email</th><td>@user_email@</td>
+    <th align=right>Email</th><td>@user_email;noquote@</td>
   </tr>
   <tr>
-    <th align=right>Community Page</th><td>@member_link@</td>
+    <th align=right>Community Page</th><td>@member_link;noquote@</td>
   </tr>
 </table>
 
