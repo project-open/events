@@ -56,9 +56,12 @@ Please
 <a href="mailto:info@project-open.com?subject=Web%20Conference%20Registration">let us know</a>
 if you would like to participate in a web seminar on a different
 day or at a different time.<br>
+
+<!--
 Please note that half of the seminars above are held at 11 am
 CEST (Central European Summer Time), while the other half is held
 at 11 am EST (Eastern Standard Time).
+-->
 
 </p>
 </td></tr>
