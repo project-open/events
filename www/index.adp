@@ -16,6 +16,8 @@
 <table width=70%>
 <tr><td>
 <p>
+
+<!--
 All of these events are online web seminars. Shortly before each seminar we will
 send you an email with the URL of a chat room and a telephone number of a 
 teleconference provider.<br>
@@ -23,6 +25,8 @@ In the chat room we will publish ("push") the URLs of our PowerPoint slides
 and of the online application. In the teleconf room we are going to provide
 you with an "audio track", explaining the PowerPoint slides and guiding you
 though the online application.
+-->
+
 </p>
 </td></tr>
 </table>
