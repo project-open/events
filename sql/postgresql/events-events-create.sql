@@ -204,7 +204,8 @@ create table events_events (
 	alternative_reg		varchar(4000),
         bulk_mail_id            integer
                                 constraint bulk_mail_id_fk
-                                references bulk_mail_messages
+                                references bulk_mail_messages,
+	time_zone		integer references timezones(tz_id)
 );
 
 comment on table events_events is '
