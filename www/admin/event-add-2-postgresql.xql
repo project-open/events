@@ -6,25 +6,24 @@
 <fullquery name="product_insert">      
       <querytext>
 
-	select ec_product__new(
-	null,
-	:user_id,
-	:event_id,
-	'$activity_info(name) $date_time', 
-	:event_price, 
-	'event_$event_id',
-	'$activity_info(name); $date_time; $venue_info(city), $venue_info(usps_abbrev)', 
-	'$activity_info(description)', 
-	'$activity_info(name), $venue_info(city), $venue_info(usps_abbrev), $venue_info(venue_name)', 
-	't', 
-	'i',
-	null, 
-	to_date(current_timestamp, 'YYYY-MM-DD'), 
-	null,
-	null,
-	:peeraddr
-	)
-
+select ec_product__new(
+	null,												-- integer
+	:user_id,											-- integer
+	:event_id,											-- integer
+	'$activity_info(name) $date_time',								-- varchar
+	:event_price,	      										-- numeric
+	'event_$event_id',										-- varchar
+	'$activity_info(name); $date_time; $venue_info(city), $venue_info(usps_abbrev)',		-- varchar
+	'$activity_info(description)', 	   		      						-- varchar
+	'$activity_info(name), $venue_info(city), $venue_info(usps_abbrev), $venue_info(venue_name)',	-- varchar
+	't', 		       			  			    				-- boolean
+	'i',												-- character
+	null, 												-- varchar
+	current_timestamp, 										-- timestamptz
+	null,			   									-- varchar
+	null,												-- varchar
+	:peeraddr											-- varchar
+)
       </querytext>
 </fullquery>
 
