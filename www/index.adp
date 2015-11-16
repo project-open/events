@@ -13,7 +13,7 @@
 
 <h2>Upcoming events at @system_name@.</h2>
 
-<table width=70%>
+<table width="70%">
 <tr><td>
 <p>
 
@@ -34,7 +34,7 @@ though the online application.
   <table cellspacing="8" width="80%">
     <multiple name="events">
       <tr valign="top">
-        <td width=180>
+        <td width="180">
           <b>@events.start_date_pretty@</b><br>
           @events.timespan@<br>
 	  @events.time_zone@
@@ -53,7 +53,7 @@ though the online application.
 </else>
 
 
-<table width=70%>
+<table width="70%">
 <tr><td>
 <p>
 Please 
