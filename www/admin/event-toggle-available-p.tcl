@@ -26,7 +26,7 @@ db_transaction {
     events::event::get -event_id $event_id -array event_info
 
     if { [db_0or1row select_ecommerce_info {}] } {
-	set user_id [ad_get_user_id]
+	set user_id [ad_conn user_id]
 	set peeraddr [ns_conn peeraddr]
 	
 	db_dml toggle_active_p_update {}
