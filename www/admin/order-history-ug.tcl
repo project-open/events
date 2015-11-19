@@ -61,7 +61,7 @@ db_foreach sel_regs "
     } else {
 	append whole_page "<tr>
 	<td>$group_name
-	<td><a href=\"order-history-one?[export_url_vars group_id history_type]\">$n_orders</a>\n"
+<td><a href=\"order-history-one?[export_vars -url {group_id history_type}]\">$n_orders</a>\n"
     }
 }
 
@@ -91,7 +91,7 @@ append whole_page "
 "
 if {$n_orders > 0 } {
     append whole_page "
-    <td><a href=\"order-history-one?[export_url_vars history_type]\">$n_orders</a>\n"
+    <td><a href=\"order-history-one?[export_vars -url {history_type}]\">$n_orders</a>\n"
 } else {
     append whole_page "<td> 0 "
 }

@@ -135,7 +135,7 @@ if [catch {
 
 This spam has already been sent.  Perhaps you double clicked?  In any 
 case, you can check the progress of this spam on
-<a href=\"old?[export_url_vars spam_id]\">the history page</a>.
+<a href=\"old?[export_vars -url {spam_id}]\">the history page</a>.
 
 [ad_admin_footer]"
     } else {

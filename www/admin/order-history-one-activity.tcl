@@ -52,7 +52,7 @@ group by e.event_id, e.start_time, v.city, v.usps_abbrev, v.iso, cc.country_name
 order by e.start_time desc
 " {
     append whole_page "<tr>
-     <td><a href=\"order-history-one?[export_url_vars event_id history_type]\">$city, $big_location</a>
+<td><a href=\"order-history-one?[export_vars -url { event_id history_type}]\">$city, $big_location</a>
      <td>[util_AnsiDatetoPrettyDate $start_time]
      <td>$n_reg registrations"
 }

@@ -74,7 +74,7 @@ db_foreach sel_regs "
 
     append whole_page "<tr>
      <td align=left>[util_IllustraDatetoPrettyDate $reg_date]
-     <td align=right><a href=\"order-history-one?[export_url_vars r_date history_type]\">$n_orders</a>\n"
+     <td align=right><a href=\"order-history-one?[export_vars -url {r_date history_type}]\">$n_orders</a>\n"
    
 }
 

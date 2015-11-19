@@ -75,7 +75,7 @@ set no_url "/admin/events/"
 
 append whole_page "
 <p>
-<li><a href=\"/shared/confirm?[export_url_vars header message yes_url no_url]\">Join all the above user groups</a>
+<li><a href=\"/shared/confirm?[export_vars -url {header message yes_url no_url}]\">Join all the above user groups</a>
 </ul>"
 
 append whole_page "[ad_footer]

@@ -55,7 +55,7 @@ order by reg_state
     #set r_state $reg_state
     set state_filter $reg_state
 
-    append whole_page "<tr><td align=left>$reg_state<td align=right><a href=\"order-history-one?[export_url_vars state_filter]\">$n_orders</a></tr>\n"
+    append whole_page "<tr><td align=left>$reg_state<td align=right><a href=\"order-history-one?[export_vars -url {state_filter}]\">$n_orders</a></tr>\n"
 }
 
 append whole_page " </table>\n [ad_footer] "

@@ -208,7 +208,7 @@ append whole_page "
 
 if {$n_users > 0} {
 #    append whole_page "
-#    <a href=\"spamees-view?[export_url_vars sql_post_select]\">
+    #    <a href=\"spamees-view?[export_vars -url {sql_post_select}]\">
 #    View whom you're spamming</a>
 #    "
 

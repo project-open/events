@@ -54,7 +54,7 @@ order by year,month
 " {
     append whole_page "<tr>
     <td align=left>$month $year
-    <td align=right><a href=\"order-history-date?[export_url_vars month year]\">$n_orders</a></tr>\n"
+    <td align=right><a href=\"order-history-date?[export_vars -url {month year}]\">$n_orders</a></tr>\n"
 }
 
 ## clean up, return page

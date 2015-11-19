@@ -113,6 +113,6 @@ if {[db_resultrows] == 0} {
 
 #}
 db_release_unused_handles
-ad_returnredirect "event.tcl?[export_url_vars event_id]"
+ad_returnredirect "event.tcl?[export_vars -url {event_id}]"
 
 ##### EOF

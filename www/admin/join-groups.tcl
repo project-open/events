@@ -45,7 +45,7 @@ db_transaction {
 	    values
 	    (:group_id, :user_id, 'administrator', :user_id, :ip_address)
 	}
-	append groups_html "<li><a href=\"/admin/ug/group?[export_url_vars group_id]\">$group_name</a> ($group_type group type)"
+	append groups_html "<li><a href=\"/admin/ug/group?[export_vars -url {group_id}]\">$group_name</a> ($group_type group type)"
     }
 } 
 

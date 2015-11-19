@@ -26,7 +26,7 @@ append whole_page "[ad_admin_header "Spam"]
 
 <h2>Spam</h2>
 
-[ad_context_bar_ws [list "../index.tcl" "Events Administration"] [list "action-choose.tcl?[export_url_vars sql_post_select]" "Spam"] "Spamees"]
+[ad_context_bar_ws [list "../index.tcl" "Events Administration"] [list "action-choose.tcl?[export_vars -url {sql_post_select}]" "Spam"] "Spamees"]
 
 <hr>
 
