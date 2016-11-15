@@ -15,6 +15,7 @@
     </database-support>
         <owner url="mailto:michael@steigman.net">Michael Steigman</owner>
         <summary>Event registration and management such as a lecture series or a social gathering online.</summary>
+        <release-date>2016-11-15</release-date>
         <description format="text/html">Organizations often have a number of set events which they like to repeat. For example, a company may have a certain presentation which it makes over and over. A photoraphy club may hold monthly outings. A marathon race could occur annually. The Events package provides a way to coordinate activities, venues, and users via a web page. This is a port of the ACS Classic 3.x events package originally written by Arsdigita. See package documentation for more info.
         </description>
 
