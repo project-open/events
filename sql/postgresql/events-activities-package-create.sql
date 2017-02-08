@@ -76,36 +76,23 @@ create function events_activity__delete (integer)
 returns integer as '
 declare
   p_activity_id				alias for $1;
+  row RECORD;
 begin
-      cursor v_activity_events is
-      select event_id as v_event_id from acs_events
-       where activity_id = p_activity_id;
-   begin
-      -- find and delete event instances
-      for row in v_activity_events loop
-	  events_event__delete(v_event_id);
-      end loop;
-      delete from events_def_actvty_attr_map where activity_id = p_activity_id;
-      delete from events_org_role_activity_map where activity_id = p_activity_id;
-      delete from events_activities where activity_id = p_activity_id;
+	FOR row IN
+	    	select event_id as v_event_id from acs_events
+		where activity_id = p_activity_id
+	LOOP
+		events_event__delete(v_event_id);
+	END LOOP;
+	delete from events_def_actvty_attr_map where activity_id = p_activity_id;
+	delete from events_org_role_activity_map where activity_id = p_activity_id;
+	delete from events_activities where activity_id = p_activity_id;
 
 	raise NOTICE ''Deleting note...'';
 	PERFORM acs_object__delete(p_activity_id);
 
 	return 0;
-
 end;' language 'plpgsql';
-
-
-
-
-
-
-
-
-
-
-
 
 
 

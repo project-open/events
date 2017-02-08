@@ -272,20 +272,21 @@ create index evnt_reg_idx on events_registrations(reg_id, user_id,reg_state);
 
 -- trigger for recording when a registration is approved ???????????
 --
-CREATE FUNCTION event_ship_date_trigger_proc () RETURNS OPAQUE AS '
-    BEGIN
+CREATE FUNCTION event_ship_date_trigger_proc () 
+RETURNS trigger AS '
+BEGIN
         IF NEW.reg_state = ''approved''
 	THEN
            NEW.approval_date := now();
         END IF;
 	RETURN NEW;
-    END;
+END;
 ' LANGUAGE 'plpgsql';
 
 
-create trigger event_ship_date_trigger before insert or update on events_registrations
-   for each row execute procedure event_ship_date_trigger_proc();
-
+create trigger event_ship_date_trigger 
+before insert or update on events_registrations
+for each row execute procedure event_ship_date_trigger_proc();
 
 
 
