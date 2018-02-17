@@ -88,9 +88,6 @@ $to_email's registration has been canceled.  $to_email has been notified
 by e-mail:
 "
 
-#e-mail the registrant to let him know we canceled his registration
-#set from_email [db_string unused "select email from
-#users where user_id = $user_id"]
 set from_email [db_string sel_from_email "select u.email
 from users u, event_info ei, events_events e
 where e.event_id = :event_id
